@@ -1,4 +1,4 @@
-# Foobot.io WordPress Website Project
+# WP Language-specific Comment Moderation
 
 ## Version: 1.0.0
 
