@@ -40,6 +40,8 @@ sass/*
 # WordPress 
 # =========================
 
+
+
 # Ignore everything in the "public_html" directory except the "wp-content" directory.
 public_html/*
 !public_html/wp-content/
@@ -60,7 +62,10 @@ public_html/wp-content/plugins/*
 # specify (see the commented-out examples for hints on how to do this.)
 public_html/wp-content/mu-plugins/*
 !public_html/wp-content/mu-plugins/disable-flood-protection.php
-
+ 
+# Ignore everything in the "themes" directory, except the themes you
+# specify (see the commented-out example for a hint on how to do this.)
+public_html/wp-content/themes/*
 
 # =========================
 # Operating System Files
