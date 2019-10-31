@@ -19,7 +19,7 @@ function baindesign_wplscm_plugin_init() {
 		add_action( 'admin_menu', 'baindesign_wplscm_settings_page' );
 
 		function baindesign_wplscm_settings_page() {
-			add_options_page( 'WPLSCM Page', 'WPLSCM Page', 'manage_options', 'wplscm-page', 'wplscm_page' );
+			add_options_page( 'Comment Moderation Email', 'Comment Moderation Email', 'manage_options', 'wplscm-page', 'wplscm_page' );
 		}
  
 		/**
