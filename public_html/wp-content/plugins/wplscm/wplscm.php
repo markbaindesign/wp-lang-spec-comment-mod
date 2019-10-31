@@ -19,7 +19,7 @@ function baindesign_wplscm_plugin_init() {
 		/**
 		 * Get post language details
 		 */
-		function khy991_wpml_get_post_language($post_id)
+		function baindesign_wplscm_get_post_language($post_id)
 		{
 			$post_language_details = apply_filters('wpml_post_language_details', NULL, $post_id);
 			return $post_language_details;
@@ -41,7 +41,7 @@ function baindesign_wplscm_plugin_init() {
 		 * This fuction outputs an email address. 
 		 * 
 		 */
-		function khy991_get_local_moderation_email($lang_code)
+		function baindesign_wplscm_get_local_moderation_email($lang_code)
 		{
 			do_action( 'wpml_switch_language', $lang_code );
 			$email = get_field( 'comment_moderation_email_address', 'option' );
@@ -54,7 +54,7 @@ function baindesign_wplscm_plugin_init() {
 		 * Filter the comment moderation email
 		 */
 
-		function khy991_comment_moderation_recipients($emails, $comment_id)
+		function baindesign_wplscm_comment_moderation_recipients($emails, $comment_id)
 		{
 			$comment = get_comment($comment_id);
 			// error_log('Comment ID: ' . $comment->comment_ID);
@@ -66,17 +66,17 @@ function baindesign_wplscm_plugin_init() {
 			$post_id = $post->ID;
 			if( ! is_wp_error( $post_id ) ) {
 				// error_log('Post ID: ' . $post_id);
-				$lang_details = khy991_wpml_get_post_language($post_id);
+				$lang_details = baindesign_wplscm_wpml_get_post_language($post_id);
 				if( ! is_wp_error( $post_id ) ) {
 					$language_code = $lang_details['language_code'];  
 					// error_log('Lang code: ' . $language_code);
-					$emails = array ( khy991_get_local_moderation_email($language_code) );      
+					$emails = array ( baindesign_wplscm_get_local_moderation_email($language_code) );      
 					return $emails;
 				}
 			}
 
 		}
-		add_filter('comment_moderation_recipients', 'khy991_comment_moderation_recipients', 11, 2);
+		add_filter('comment_moderation_recipients', 'baindesign_wplscm_comment_moderation_recipients', 11, 2);
 
 	} else {
 
