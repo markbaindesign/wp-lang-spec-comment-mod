@@ -13,14 +13,25 @@
  */
 
 function baindesign_wplscm_plugin_init() {
+
+	include( plugin_dir_path( __FILE__ ) . 'admin/admin.php');
 	
 	if( class_exists( 'SitePress' ) ) {
 
-		add_action( 'admin_menu', 'baindesign_wplscm_settings_page' );
+		/**
+		 * Get active languages
+		 */
+		add_action( 'admin_init', 'baindesign_get_languages' );
+		function baindesign_get_languages(){
+			$active_languages=icl_get_languages();
+			// echo '<pre>';
+			// var_dump( $active_languages );
+			// echo '</pre>';
+			// var_dump( $active_languages[] );
 
-		function baindesign_wplscm_settings_page() {
-			add_options_page( 'Comment Moderation Email', 'Comment Moderation Email', 'manage_options', 'wplscm-page', 'wplscm_page' );
 		}
+
+
  
 		/**
 		 * Get post language details
