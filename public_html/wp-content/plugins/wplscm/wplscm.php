@@ -45,17 +45,9 @@ function baindesign_wplscm_plugin_init() {
 		/**
 		 * Get the moderation email by language
 		 * 
-		 * This function checks for an ACF field which 
-		 * contains the moderation email address for the
-		 * specific language.
-		 * 
-		 * It achieves this by switching language, checking
-		 * the value, then switching back to the default 
-		 * language. 
-		 * 
 		 * As an input, this function requires the WPML language code. 
 		 * 
-		 * This fuction outputs an email address. 
+		 * This function outputs an email address. 
 		 * 
 		 */
 		function baindesign_wplscm_get_local_moderation_email($lang_code)
