@@ -24,6 +24,7 @@ This plugin has been developed in VVV. To add this project to your VVV machine, 
       site_title: WP Lang Specific Comment Moderation
       delete_default_plugins: true
       install_plugins:
+        - debug-bar
         - transients-manager
         - query-monitor
         - email-log
