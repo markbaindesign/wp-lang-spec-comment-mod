@@ -23,7 +23,7 @@ function baindesign_wplscm_plugin_init() {
 		 */
 		add_action( 'admin_init', 'baindesign_get_languages' );
 		function baindesign_get_languages(){
-			$active_languages=icl_get_languages();
+			$active_languages = icl_get_languages();
 			// echo '<pre>';
 			// var_dump( $active_languages );
 			// echo '</pre>';
@@ -83,7 +83,7 @@ function baindesign_wplscm_plugin_init() {
 			$post_id = $post->ID;
 			if( ! is_wp_error( $post_id ) ) {
 				// error_log('Post ID: ' . $post_id);
-				$lang_details = baindesign_wplscm_wpml_get_post_language($post_id);
+				$lang_details = baindesign_wplscm_get_post_language($post_id);
 				if( ! is_wp_error( $post_id ) ) {
 					$language_code = $lang_details['language_code'];  
 					// error_log('Lang code: ' . $language_code);
