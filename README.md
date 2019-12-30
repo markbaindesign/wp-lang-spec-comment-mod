@@ -34,3 +34,11 @@ This plugin has been developed in VVV. To add this project to your VVV machine, 
         WP_DEBUG_DISPLAY: false
         WP_DISABLE_FATAL_ERROR_HANDLER: true
 ```
+
+# Testing
+
+WP CLI is your friend. Here are some commands to make testing a breeze.
+
+```
+wp option get baindesign_wplscm_email_settings
+```

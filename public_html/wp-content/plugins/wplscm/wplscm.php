@@ -60,10 +60,16 @@ function baindesign_wplscm_plugin_init() {
 		 */
 		function baindesign_wplscm_get_local_moderation_email($lang_code)
 		{
-			do_action( 'wpml_switch_language', $lang_code );
-			$email = get_field( 'comment_moderation_email_address', 'option' );
-			do_action( 'wpml_switch_language', NULL );
+			// There is now no need to switch languages to get the emails
+			// All language-email pairs are stored in the database
+			/*
+				do_action( 'wpml_switch_language', $lang_code );
+				$email = get_field( 'comment_moderation_email_address', 'option' );
+				do_action( 'wpml_switch_language', NULL );
+			*/
 			
+			$emails = get_option('baindesign_wplscm_email_settings');
+			$email = $emails['baindesign_wplscm_email_' . $lang_code];			
 			return $email;
 		}
 
