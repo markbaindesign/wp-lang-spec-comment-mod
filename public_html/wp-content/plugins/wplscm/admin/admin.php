@@ -56,24 +56,6 @@ function baindesign_wplscm_email_field_render($code)
 <?php
 }
 
-// Catalan
-function baindesign_wplscm_email_field_render_ca()
-{
-	$options = get_option( 'baindesign_wplscm_email_settings' );
-	?>
-	<input type='email' name='baindesign_wplscm_email_settings[baindesign_wplscm_email_ca]' value='<?php echo $options['baindesign_wplscm_email_ca']; ?>' placeholder='catalan@example.com'>
-<?php
-}
-
-// Spanish
-function baindesign_wplscm_email_field_render_es()
-{
-	$options = get_option( 'baindesign_wplscm_email_settings' );
-	?>
-	<input type='email' name='baindesign_wplscm_email_settings[baindesign_wplscm_email_es]' value='<?php echo $options['baindesign_wplscm_email_es']; ?>' placeholder='spanish@example.com'>
-<?php
-}
-
 /**
  * Render the settings section content
  */
