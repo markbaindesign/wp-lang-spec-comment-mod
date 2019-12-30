@@ -32,7 +32,7 @@ function baindesign_wplscm_settings_init()
 		error_log($code, 0);
 		add_settings_field(
 			'baindesign_wplscm_email_'.$code,						// ID
-			sprintf(__('%1$s Email Address', '_bd_wplscm'), $name), 			// Label
+			$name, 			// Label
 			'baindesign_wplscm_email_field_render', // Function to display inputs
 			'discussion',													// Page to display on
 			'baindesign-wplscm-email-section',						// Section ID where to show field
@@ -54,7 +54,7 @@ function baindesign_wplscm_email_field_render(array $args)
 	$input_name = 'baindesign_wplscm_email_settings[baindesign_wplscm_email_'.$args[0].']';
 	$input_value_option = 'baindesign_wplscm_email_'.$args[0];
 	$input_value = $options[$input_value_option];
-	$input_placeholder = $args[1] .'@example.com';
+	$input_placeholder = $args[0] .'@example.com';
 	$input_id = 'email-' . $args[0];
 
 	// Render
