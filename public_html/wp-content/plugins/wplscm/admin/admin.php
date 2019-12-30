@@ -25,16 +25,18 @@ function baindesign_wplscm_settings_init()
 	 */
 
 	$langs = icl_get_languages();
+	var_dump($langs);
 	foreach( $langs as $lang ){
 		$code = $lang["code"];
-		// error_log($code, 0);
+		$name = $lang["translated_name"];
+		error_log($code, 0);
 		add_settings_field(
 			'baindesign_wplscm_email_{$code}',						// ID
 			__('Catalan Email Address', '_bd_wplscm'),			// Label
-			'baindesign_wplscm_email_field_render',		// Function to display inputs
+			'baindesign_wplscm_email_field_render', // Function to display inputs
 			'discussion',													// Page to display on
 			'baindesign-wplscm-email-section',						// Section ID where to show field
-			$code																// Passes to callback function
+			array( $code, $name )																// Passes to callback function
 		);
 	}
 
@@ -44,13 +46,14 @@ function baindesign_wplscm_settings_init()
  * Render the input fields for each language
  */
 
-function baindesign_wplscm_email_field_render($code)
+function baindesign_wplscm_email_field_render(array $args)
 {
+	error_log("Code: " . $args[1], 0);
 	$options = get_option( 'baindesign_wplscm_email_settings' );
-		$input_name = 'baindesign_wplscm_email_settings[baindesign_wplscm_email_'.$code.']';
-		$input_value_option = 'baindesign_wplscm_email_'.$code;
-		$input_value = $options[$input_value_option];
-		$input_placeholder = $code .'@example.com';
+	$input_name = 'baindesign_wplscm_email_settings[baindesign_wplscm_email_'.$args[0].']';
+	$input_value_option = 'baindesign_wplscm_email_'.$args[0];
+	$input_value = $options[$input_value_option];
+	$input_placeholder = $args[1] .'@example.com';
 	?>
 	<input type="email" name="<?php echo $input_name; ?>" value="<?php echo $input_value; ?>" placeholder="<?php echo $input_placeholder; ?>">
 <?php
