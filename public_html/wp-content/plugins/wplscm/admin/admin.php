@@ -31,7 +31,7 @@ function baindesign_wplscm_settings_init()
 		$name = $lang["translated_name"];
 		error_log($code, 0);
 		add_settings_field(
-			'baindesign_wplscm_email_{$code}',						// ID
+			'baindesign_wplscm_email_'.$code,						// ID
 			__('Catalan Email Address', '_bd_wplscm'),			// Label
 			'baindesign_wplscm_email_field_render', // Function to display inputs
 			'discussion',													// Page to display on
@@ -49,14 +49,16 @@ function baindesign_wplscm_settings_init()
 function baindesign_wplscm_email_field_render(array $args)
 {
 	error_log("Code: " . $args[1], 0);
+
 	$options = get_option( 'baindesign_wplscm_email_settings' );
 	$input_name = 'baindesign_wplscm_email_settings[baindesign_wplscm_email_'.$args[0].']';
 	$input_value_option = 'baindesign_wplscm_email_'.$args[0];
 	$input_value = $options[$input_value_option];
 	$input_placeholder = $args[1] .'@example.com';
-	?>
-	<input type="email" name="<?php echo $input_name; ?>" value="<?php echo $input_value; ?>" placeholder="<?php echo $input_placeholder; ?>">
-<?php
+	$input_id = 'email-' . $args[0];
+
+	// Render
+	echo '<input type="email" id="'.$input_id.'" name="'.$input_name.'" value="'.$input_value.'" placeholder="' . $input_placeholder .'">';
 }
 
 /**
