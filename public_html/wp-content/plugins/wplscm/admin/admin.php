@@ -32,7 +32,7 @@ function baindesign_wplscm_settings_init()
 		error_log($code, 0);
 		add_settings_field(
 			'baindesign_wplscm_email_'.$code,						// ID
-			__('Catalan Email Address', '_bd_wplscm'),			// Label
+			sprintf(__('%1$s Email Address', '_bd_wplscm'), $name), 			// Label
 			'baindesign_wplscm_email_field_render', // Function to display inputs
 			'discussion',													// Page to display on
 			'baindesign-wplscm-email-section',						// Section ID where to show field
