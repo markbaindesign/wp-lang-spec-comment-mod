@@ -19,21 +19,6 @@ function baindesign_wplscm_plugin_init() {
 	if( class_exists( 'SitePress' ) ) {
 
 		/**
-		 * Get active languages
-		 */
-		add_action( 'admin_init', 'baindesign_get_languages' );
-		function baindesign_get_languages(){
-			$active_languages = icl_get_languages();
-			// echo '<pre>';
-			// var_dump( $active_languages );
-			// echo '</pre>';
-			// var_dump( $active_languages[] );
-
-		}
-
-
- 
-		/**
 		 * Get post language details
 		 */
 		function baindesign_wplscm_get_post_language($post_id)
