@@ -14,12 +14,14 @@ This plugin has been developed in VVV. To add this project to your VVV machine, 
 ```
   wp-language-specific-comment-moderation:
     description: "A WordPress plugin"
-    repo: https://github.com/markbaindesign/wp-foobot-api.git
+    repo: https://github.com/markbaindesign/wp-lang-spec-comment-mod.git
+    branch: develop
     hosts:
       - wplscm.test
       - cat.wplscm.test
       - esp.wplscm.test
     custom:
+      site_title: WP Lang Specific Comment Moderation
       delete_default_plugins: true
       install_plugins:
         - transients-manager
