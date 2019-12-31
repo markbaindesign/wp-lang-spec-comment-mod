@@ -25,7 +25,7 @@ function baindesign_wplscm_settings_init()
 	 */
 
 	$langs = icl_get_languages();
-	var_dump($langs);
+	// var_dump($langs);
 	foreach( $langs as $lang ){
 		$code = $lang["code"];
 		$name = $lang["translated_name"];
