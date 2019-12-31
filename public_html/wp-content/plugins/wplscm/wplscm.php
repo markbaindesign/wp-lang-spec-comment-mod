@@ -4,7 +4,7 @@
  * Plugin URI: https://bain.design/wplscm
  * Description: A simple plugin enabling comment moderation emails to be sent to a different email address depending on the language of the commented post. Requires the WPML plugin.
  * Author: Bain Design
- * Version: 1.0.0
+ * Version: 1.1.0
  * Author URI: http://bain.design
  * License: GNU General Public License v2.0
  * License URI: http://www.gnu.org/licenses/gpl-2.0.html
