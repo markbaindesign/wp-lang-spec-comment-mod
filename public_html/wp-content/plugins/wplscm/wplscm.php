@@ -42,7 +42,6 @@ function baindesign_wplscm_plugin_init() {
 			}
 			$emails = get_option('baindesign_wplscm_email_settings');
 			if( !$emails ) {
-				error_log('No email set for '.$lang_code, 0);
 				return; // No email set
 			}
 			// Email found
