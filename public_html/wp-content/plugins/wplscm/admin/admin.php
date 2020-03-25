@@ -15,7 +15,7 @@ function baindesign_wplscm_settings_init()
 
 	add_settings_section(
 		'baindesign-wplscm-email-section',						// Section ID
-		__('Moderation Email Addresses', '_bd_wplscm'),		// Section header
+		__('Multilingual Comment Moderation', '_bd_wplscm'),		// Section header
 		'baindesign_wplscm_settings_section_callback',		// Callback
 		'discussion' 													// Add section to Settings > Discussion
 	);
@@ -26,20 +26,20 @@ function baindesign_wplscm_settings_init()
 
 	$langs = icl_get_languages();
 	// var_dump($langs);
-	foreach( $langs as $lang ){
+	foreach ($langs as $lang) {
 		$code = $lang["code"];
-		$name = $lang["translated_name"];
-		error_log($code, 0);
+		$name = $lang["native_name"];
+		$name_t = $lang["translated_name"];
+		// error_log($code, 0);
 		add_settings_field(
-			'baindesign_wplscm_email_'.$code,						// ID
-			$name, 			// Label
+			'baindesign_wplscm_email_' . $code,						// ID
+			$name . ' (' . $name_t . ')', 			// Label
 			'baindesign_wplscm_email_field_render', // Function to display inputs
 			'discussion',													// Page to display on
 			'baindesign-wplscm-email-section',						// Section ID where to show field
-			array( $code, $name )																// Passes to callback function
+			array($code, $name)																// Passes to callback function
 		);
 	}
-
 }
 
 /**
@@ -48,17 +48,17 @@ function baindesign_wplscm_settings_init()
 
 function baindesign_wplscm_email_field_render(array $args)
 {
-	error_log("Code: " . $args[1], 0);
+	// error_log("Code: " . $args[1], 0);
 
-	$options = get_option( 'baindesign_wplscm_email_settings' );
-	$input_name = 'baindesign_wplscm_email_settings[baindesign_wplscm_email_'.$args[0].']';
-	$input_value_option = 'baindesign_wplscm_email_'.$args[0];
+	$options = get_option('baindesign_wplscm_email_settings');
+	$input_name = 'baindesign_wplscm_email_settings[baindesign_wplscm_email_' . $args[0] . ']';
+	$input_value_option = 'baindesign_wplscm_email_' . $args[0];
 	$input_value = $options[$input_value_option];
-	$input_placeholder = $args[0] .'@example.com';
+	$input_placeholder = $args[0] . '@example.com';
 	$input_id = 'email-' . $args[0];
 
 	// Render
-	echo '<input type="email" id="'.$input_id.'" name="'.$input_name.'" value="'.$input_value.'" placeholder="' . $input_placeholder .'">';
+	echo '<input type="email" id="' . $input_id . '" name="' . $input_name . '" value="' . $input_value . '" placeholder="' . $input_placeholder . '">';
 }
 
 /**
@@ -66,5 +66,6 @@ function baindesign_wplscm_email_field_render(array $args)
  */
 function baindesign_wplscm_settings_section_callback()
 {
-	echo __('Add an email address (e.g. mark@bain.design) for comment moderation in each available language.', '_bd_wplscm');
+	$default_email = get_option('admin_email');
+	printf( __('For each of the following registered languages, you may add a specific Administration Email Address for comment moderation.<br />This email will be used for comments on posts in that language, instead of the default Administration Email Address (%s).', '_bd_wplscm'),$default_email);
 }

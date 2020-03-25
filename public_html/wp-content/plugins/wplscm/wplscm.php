@@ -37,8 +37,16 @@ function baindesign_wplscm_plugin_init() {
 		 */
 		function baindesign_wplscm_get_local_moderation_email($lang_code)
 		{			
+			if( !$lang_code ) {
+				return;
+			}
 			$emails = get_option('baindesign_wplscm_email_settings');
-			$email = $emails['baindesign_wplscm_email_' . $lang_code];			
+			if( !$emails ) {
+				error_log('No email set for '.$lang_code, 0);
+				return; // No email set
+			}
+			// Email found
+			$email = $emails['baindesign_wplscm_email_' . $lang_code];
 			return $email;
 		}
 
@@ -48,17 +56,39 @@ function baindesign_wplscm_plugin_init() {
 
 		function baindesign_wplscm_comment_moderation_recipients($emails, $comment_id)
 		{
+			// vars
 			$comment = get_comment($comment_id);
 			$post = get_post( $comment->comment_post_ID );
-			if( is_wp_error( $post ) ) {
-				return false; // Bail early
-			}
 			$post_id = $post->ID;
+
+			// Get the Admin email from Settings > General
+			// This will be used if no specific email set for language. 
+			$default_email = get_option('admin_email');
+
+			if( is_wp_error( $post ) ) {
+				return; // Bail early
+			}
+
 			if( ! is_wp_error( $post_id ) ) {
+
+				// Get the post language
 				$lang_details = baindesign_wplscm_get_post_language($post_id);
+
 				if( ! is_wp_error( $post_id ) ) {
-					$language_code = $lang_details['language_code'];  
-					$emails = array ( baindesign_wplscm_get_local_moderation_email($language_code) );      
+					$language_code = $lang_details['language_code'];
+
+					// Check if an email has been set for this language
+					$local_email = baindesign_wplscm_get_local_moderation_email($language_code);
+					
+					// Create an empty array for the email address
+					$emails = array();
+					if ( $local_email ){
+						// An email has been set for this lang. Add to array.
+						$emails[] = $local_email;
+					} else {
+						// No email set, add the default email to the array.
+						$emails[] = $default_email;
+					}
 					return $emails;
 				}
 			}
