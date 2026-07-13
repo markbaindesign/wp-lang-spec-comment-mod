@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Language-specific Comment Moderation
- * Plugin URI: https://bain.design/wplscm
+ * Plugin URI: https://wordpress.org/plugins/language-specific-comment-moderation/
  * Description: A simple plugin enabling comment moderation emails to be sent to a different email address depending on the language of the commented post. Requires the WPML plugin.
  * Author: Bain Design
  * Version: 1.1.0
