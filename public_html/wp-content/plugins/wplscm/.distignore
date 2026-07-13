@@ -2,6 +2,7 @@
 .github
 .distignore
 .gitignore
+.wordpress-org
 .phpcs.xml.dist
 .phpunit.result.cache
 bin

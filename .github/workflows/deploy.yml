@@ -31,6 +31,7 @@ jobs:
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SLUG: wplscm
           BUILD_DIR: build/wplscm
+          ASSETS_DIR: public_html/wp-content/plugins/wplscm/.wordpress-org
 
       - name: Zip release asset
         run: cd build && zip -r ../wplscm.zip wplscm
