@@ -9,6 +9,13 @@ node_modules
 release
 releases
 svn
+!public_html/wp-content/plugins/wplscm/bin/
+
+# =========================
+# PHP testing / Composer
+# =========================
+public_html/wp-content/plugins/wplscm/vendor/
+public_html/wp-content/plugins/wplscm/.phpunit.result.cache
 
 # =========================
 # VVV provisioning
@@ -104,6 +111,7 @@ $RECYCLE.BIN/
 *.gz
 *.sql
 *.yml
+!.github/workflows/*.yml
 *.orig
 *.log
 .DS_Store
