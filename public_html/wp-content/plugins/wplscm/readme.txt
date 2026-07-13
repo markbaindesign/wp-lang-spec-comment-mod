@@ -4,7 +4,7 @@ Donate link: https://bain.design/
 Tags: wpml, multilingual, comment moderation, comments, translation
 Requires at least: 4.6
 Tested up to: 6.7
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -67,7 +67,7 @@ Not currently — this plugin is built specifically against the WPML API.
 
 == Changelog ==
 
-= 1.1.0 =
+= 1.2.0 =
 * Hardened output escaping on the settings screen.
 * Fixed a fatal error that could occur if WPML was deactivated while the plugin was still active.
 * Tested up to WordPress 6.7.
