@@ -29,7 +29,7 @@ jobs:
         env:
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
-          SLUG: wplscm
+          SLUG: language-specific-comment-moderation
           BUILD_DIR: build/wplscm
           ASSETS_DIR: public_html/wp-content/plugins/wplscm/.wordpress-org
 
