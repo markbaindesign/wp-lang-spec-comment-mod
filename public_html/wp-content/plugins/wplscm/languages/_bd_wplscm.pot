@@ -25,5 +25,5 @@ msgid "Multilingual Comment Moderation"
 msgstr "Moderació del Comentaris en Diversos Idiomes"
 
 # wpml-name: c61295853e9756d02a8023550d860fca
-msgid "<p><strong>Error</strong>: You must activate the WPML plugin for the Language-specific Comment Moderation to work!</p>"
+msgid "<p><strong>Error</strong>: You must activate the WPML plugin for Multilingual Comment Moderation Emails to work!</p>"
 msgstr ""

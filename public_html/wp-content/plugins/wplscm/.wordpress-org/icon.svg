@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="256" y2="256" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#1B4B5A"/>
+      <stop offset="1" stop-color="#0E2F3C"/>
+    </linearGradient>
+    <linearGradient id="bubble" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EAF3F2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="256" height="256" fill="url(#bg)"/>
+
+  <!-- main comment bubble -->
+  <path d="M48 70
+           a20 20 0 0 1 20 -20
+           h120
+           a20 20 0 0 1 20 20
+           v78
+           a20 20 0 0 1 -20 20
+           h-84
+           l-30 28
+           v-28
+           h-6
+           a20 20 0 0 1 -20 -20
+           z"
+        fill="url(#bubble)"/>
+
+  <!-- globe / language motif inside the bubble -->
+  <g transform="translate(128,108)">
+    <circle r="34" fill="none" stroke="#1B4B5A" stroke-width="6"/>
+    <ellipse rx="15" ry="34" fill="none" stroke="#1B4B5A" stroke-width="5"/>
+    <line x1="-34" y1="0" x2="34" y2="0" stroke="#1B4B5A" stroke-width="5"/>
+    <line x1="-30" y1="-17" x2="30" y2="-17" stroke="#1B4B5A" stroke-width="5"/>
+    <line x1="-30" y1="17" x2="30" y2="17" stroke="#1B4B5A" stroke-width="5"/>
+  </g>
+
+  <!-- moderation check badge -->
+  <circle cx="196" cy="176" r="30" fill="#2FA98C"/>
+  <path d="M182 176 l10 10 l20 -22" fill="none" stroke="#FFFFFF" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -1,10 +1,10 @@
-=== Language-specific Comment Moderation ===
+=== Multilingual Comment Moderation Emails for WPML ===
 Contributors: markcbain
 Donate link: https://bain.design/
 Tags: wpml, multilingual, comment moderation, comments, translation
 Requires at least: 4.6
 Tested up to: 7.0.1
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -15,7 +15,7 @@ Route WordPress comment moderation notification emails to a different address fo
 
 By default, WordPress sends every comment moderation notification to a single admin email address, no matter what language the commented-on post is in. On a multilingual site built with **WPML**, that means one inbox (and often one person) has to triage moderation requests for content they may not even be able to read.
 
-**Language-specific Comment Moderation** fixes this by letting you set a separate moderation email address for each active language on your site. When a comment comes in on a post written in Spanish, the notification goes to your Spanish moderator; when it's in French, it goes to your French moderator; and so on. Any language without its own configured address simply falls back to your site's default Administration Email Address, so you only need to set up the languages that need a dedicated moderator.
+**Multilingual Comment Moderation Emails for WPML** fixes this by letting you set a separate moderation email address for each active language on your site. When a comment comes in on a post written in Spanish, the notification goes to your Spanish moderator; when it's in French, it goes to your French moderator; and so on. Any language without its own configured address simply falls back to your site's default Administration Email Address, so you only need to set up the languages that need a dedicated moderator.
 
 **Key features**
 
@@ -66,6 +66,9 @@ Not currently — this plugin is built specifically against the WPML API.
 1. The plugin settings, showing a moderation email field for each registered language.
 
 == Changelog ==
+
+= 1.2.2 =
+* Renamed the plugin to "Multilingual Comment Moderation Emails for WPML" (display name only; slug and text domain unchanged).
 
 = 1.2.1 =
 * Tested up to WordPress 7.0.1.
